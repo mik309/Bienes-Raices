@@ -4,8 +4,16 @@ import usuarioRoutes from "./routes/usuarioRoutes.js"
 //Create the app
 const app = express()
 
+//Pug
+app.set('view engine', 'pug')
+app.set('views', './views')
+
+//Carpeta publica
+app.use(express.static('public'))
+
 //Routing
-app.use('/', usuarioRoutes)
+app.use('/auth', usuarioRoutes)
+
 
 //Port
 const port = 3000
